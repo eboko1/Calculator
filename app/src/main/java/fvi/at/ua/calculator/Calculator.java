@@ -9,7 +9,10 @@ import android.widget.TextView;
 
 public class Calculator extends AppCompatActivity {
 
-    private TextView screen;
+    private TextView tv_display;
+    private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0,
+                    btnEquals, btnClean, btnMultip, btnDiv, btnAdding, btnSubtraction;
+
     private String display = "";
     private  String currentOperator = "";
 
@@ -17,54 +20,37 @@ public class Calculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+        init();
+
 
     }
 
+   public void init(){
+       tv_display = (TextView)findViewById(R.id.tv_display);
+
+       btnEquals = (Button)findViewById(R.id.btnEquals);
+       btnDiv = (Button)findViewById(R.id.btnDiv);
+       btnAdding = (Button)findViewById(R.id.btnAddition);
+       btnMultip = (Button)findViewById(R.id.btnMultip);
+       btnSubtraction = (Button)findViewById(R.id.btnSub);
+       btnClean = (Button)findViewById(R.id.btnClean);
+
+       btn0 = (Button)findViewById(R.id.btn0);
+       btn1 = (Button)findViewById(R.id.btn1);
+       btn2 = (Button)findViewById(R.id.btn2);
+       btn3 = (Button)findViewById(R.id.btn3);
+       btn4 = (Button)findViewById(R.id.btn4);
+       btn5 = (Button)findViewById(R.id.btn5);
+       btn6 = (Button)findViewById(R.id.btn6);
+       btn7 = (Button)findViewById(R.id.btn7);
+       btn8 = (Button)findViewById(R.id.btn8);
+       btn9 = (Button)findViewById(R.id.btn9);
+   }
 
 
-<Button
-    android:id="@+id/button7"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@android:color/holo_purple"
-    android:onClick="onClickEquals"
-    android:text="7"
-    android:layout_weight="1"
-    android:textColor="@android:color/background_light"
-    android:textSize="30sp" />
 
-        <Button
-    android:id="@+id/button8"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@android:color/holo_purple"
-    android:onClick="onClickEquals"
-    android:text="8"
-    android:layout_weight="1"
-    android:textColor="@android:color/background_light"
-    android:textSize="30sp" />
-
-        <Button
-    android:id="@+id/button9"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@android:color/holo_purple"
-    android:onClick="onClickEquals"
-    android:text="9"
-    android:layout_weight="1"
-    android:textColor="@android:color/background_light"
-    android:textSize="30sp" />
-
-        <Button
-    android:id="@+id/buttonMyltip"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_weight="1"
-    android:background="@android:color/holo_purple"
-    android:onClick="onClickClear"
-    android:text=""
-    android:textColor="@android:color/background_light"
-    android:textSize="30sp" />
-
+   public void displayClean(){
+       display = "";
+   }
 
 }
