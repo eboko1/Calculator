@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class Calculator extends AppCompatActivity {
+public class Calculator extends AppCompatActivity implements View.OnClickListener{
 
     private TextView tv_display;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0,
@@ -21,8 +21,14 @@ public class Calculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
         init();
+        initSetOnClick();
 
 
+
+    }
+
+    public void initSetOnClick(){
+        btnClean.setOnClickListener(this);
     }
 
    public void init(){
@@ -47,10 +53,16 @@ public class Calculator extends AppCompatActivity {
        btn9 = (Button)findViewById(R.id.btn9);
    }
 
-
-
    public void displayClean(){
        display = "";
    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnClean:
+                displayClean();
+                tv_display.setText(display);
+        }
+    }
 }
