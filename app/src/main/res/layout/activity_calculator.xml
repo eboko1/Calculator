@@ -21,6 +21,56 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btnRoot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_purple"
+            android:onClick="onClickEquals"
+            android:text="√"
+            android:layout_weight="1"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnSt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_purple"
+            android:onClick="onClickEquals"
+            android:text="x²"
+            android:layout_weight="1"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnVid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_purple"
+            android:onClick=""
+            android:text="%"
+            android:layout_weight="1"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnDiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/holo_purple"
+            android:onClick="onClickClear"
+            android:text="÷"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,13 +155,13 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/btnDiv"
+            android:id="@+id/btnMinus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/holo_purple"
             android:onClick="onClickClear"
-            android:text="/"
+            android:text="-"
             android:textColor="@android:color/background_light"
             android:textSize="30sp" />
     </LinearLayout>
@@ -154,13 +204,13 @@
             android:textSize="30sp" />
 
         <Button
-            android:id="@+id/buttonMyltip"
+            android:id="@+id/btnPlas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@android:color/holo_purple"
             android:onClick="onClickClear"
-            android:text=""
+            android:text="+"
             android:textColor="@android:color/background_light"
             android:textSize="30sp" />
 
