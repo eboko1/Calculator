@@ -22,22 +22,20 @@ public class Calculator extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        init();
-
         if (savedInstanceState != null){
             display = savedInstanceState.getString(DISPLAY_KEY);
-        }
+                  }
+        init();
+
+        displayUpdate();
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        outState.putString(DISPLAY_KEY, display);
-    }
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString(DISPLAY_KEY, display);
+       }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
-
-    }
 
     public void init(){
        tv_display = (TextView)findViewById(R.id.tv_display);
@@ -93,7 +91,6 @@ public class Calculator extends AppCompatActivity {
 
          default: return -1;
      }
-
     }
 
     public void onClickEquals(View v){
