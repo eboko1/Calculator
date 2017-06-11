@@ -17,10 +17,6 @@ import java.util.regex.Pattern;
 public class Calculator extends AppCompatActivity {
     private static final String INFO_CALC = "calc";
     private TextView tv_display;
-    private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0,
-                    btnEquals, btnClean, btnMultip, btnDiv, btnAdding, btnSubtraction;
-
-
     private String display = " ";
     private  String operator = " ";
 
@@ -29,32 +25,10 @@ public class Calculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
         init();
-
-        tv_display.setText(display);
-
-
     }
 
    public void init(){
        tv_display = (TextView)findViewById(R.id.tv_display);
-
-       btnEquals = (Button)findViewById(R.id.btnEquals);
-       btnDiv = (Button)findViewById(R.id.btnDiv);
-       btnAdding = (Button)findViewById(R.id.btnAddition);
-       btnMultip = (Button)findViewById(R.id.btnMultip);
-       btnSubtraction = (Button)findViewById(R.id.btnSub);
-       btnClean = (Button)findViewById(R.id.btnClean);
-
-       btn0 = (Button)findViewById(R.id.btn0);
-       btn1 = (Button)findViewById(R.id.btn1);
-       btn2 = (Button)findViewById(R.id.btn2);
-       btn3 = (Button)findViewById(R.id.btn3);
-       btn4 = (Button)findViewById(R.id.btn4);
-       btn5 = (Button)findViewById(R.id.btn5);
-       btn6 = (Button)findViewById(R.id.btn6);
-       btn7 = (Button)findViewById(R.id.btn7);
-       btn8 = (Button)findViewById(R.id.btn8);
-       btn9 = (Button)findViewById(R.id.btn9);
    }
 
    public void displayClean(View v){
@@ -63,8 +37,6 @@ public class Calculator extends AppCompatActivity {
        displayUpdate();
        Log.i(INFO_CALC, "displayClean() display = " + display + "/n operator " + operator);
    }
-
-
 
     public void onClickNumber(View v) {
         Button btnNum = (Button) v;
