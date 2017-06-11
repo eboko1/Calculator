@@ -65,6 +65,7 @@
             android:textSize="30sp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,10 +75,10 @@
             android:id="@+id/btn7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_purple"
-            android:text="7"
-            android:onClick="onClick"
             android:layout_weight="1"
+            android:background="@android:color/holo_purple"
+            android:onClick="onClickNumber"
+            android:text="7"
             android:textColor="@android:color/background_light"
             android:textSize="30sp" />
 
@@ -85,10 +86,10 @@
             android:id="@+id/btn8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_purple"
-            android:text="8"
-            android:onClick="onClickNumber"
             android:layout_weight="1"
+            android:background="@android:color/holo_purple"
+            android:onClick="onClickNumber"
+            android:text="8"
             android:textColor="@android:color/background_light"
             android:textSize="30sp" />
 
@@ -96,10 +97,10 @@
             android:id="@+id/btn9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_purple"
-            android:text="9"
-            android:onClick="onClickNumber"
             android:layout_weight="1"
+            android:background="@android:color/holo_purple"
+            android:onClick="onClickNumber"
+            android:text="9"
             android:textColor="@android:color/background_light"
             android:textSize="30sp" />
 

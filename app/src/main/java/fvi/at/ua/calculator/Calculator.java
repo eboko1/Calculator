@@ -2,13 +2,14 @@ package fvi.at.ua.calculator;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 
 public class Calculator extends AppCompatActivity {
-
+    private static final String INFO_CALC = "calc";
     private TextView tv_display;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0,
                     btnEquals, btnClean, btnMultip, btnDiv, btnAdding, btnSubtraction;
@@ -50,19 +51,21 @@ public class Calculator extends AppCompatActivity {
        btn9 = (Button)findViewById(R.id.btn9);
    }
 
-   public void displayClean(){
+   public void displayClean(View v){
        display = "";
        operator = "";
+       displayUpdate();
+       Log.i(INFO_CALC, "displayClean() display = " + display + "/n operator " + operator);
    }
 
-    public void displayUpdate(){
-        tv_display.setText(display);
-    }
+
 
     public void onClickNumber(View v) {
         Button btnNum = (Button) v;
             display = display + btnNum.getText().toString();
             displayUpdate();
+            Log.i(INFO_CALC, "onClickNumber(View v " + "/////display /+/ number btn//////");
+            Log.i(INFO_CALC, "onClickNumber(View v) "  + btnNum.getText().toString());
     }
 
 
@@ -71,7 +74,20 @@ public class Calculator extends AppCompatActivity {
         display = display + btnOperator.getText().toString();
         operator = btnOperator.getText().toString();
         displayUpdate();
+        Log.i(INFO_CALC, "onClickOperator(View v) " + "/////display /+/ operator btn//////");
+        Log.i(INFO_CALC, "onClickOperator(View v) " + btnOperator.getText().toString());
     }
 
+    public void displayUpdate(){
+        tv_display.setText(display);
+        Log.i(INFO_CALC, "displayUpdate() " + display);
+    }
+
+    public double add(String a, String b){
+     double num1 = Double.valueOf(a);
+     double num2 = Double.valueOf(b);
+        return num1 + num2;
+
+    }
 
 }
