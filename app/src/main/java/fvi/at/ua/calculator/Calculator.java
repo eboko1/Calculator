@@ -1,11 +1,17 @@
 package fvi.at.ua.calculator;
 
+import android.content.Intent;
+import android.media.MediaCodec;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.StringTokenizer;
+import java.util.regex.Pattern;
 
 
 public class Calculator extends AppCompatActivity {
@@ -15,8 +21,8 @@ public class Calculator extends AppCompatActivity {
                     btnEquals, btnClean, btnMultip, btnDiv, btnAdding, btnSubtraction;
 
 
-    private String display = "";
-    private  String operator = "";
+    private String display = " ";
+    private  String operator = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +58,8 @@ public class Calculator extends AppCompatActivity {
    }
 
    public void displayClean(View v){
-       display = "";
-       operator = "";
+       display = " ";
+       operator = " ";
        displayUpdate();
        Log.i(INFO_CALC, "displayClean() display = " + display + "/n operator " + operator);
    }
@@ -74,19 +80,56 @@ public class Calculator extends AppCompatActivity {
         display = display + btnOperator.getText().toString();
         operator = btnOperator.getText().toString();
         displayUpdate();
-        Log.i(INFO_CALC, "onClickOperator(View v) " + "/////display /+/ operator btn//////");
-        Log.i(INFO_CALC, "onClickOperator(View v) " + btnOperator.getText().toString());
+
     }
 
-    public void displayUpdate(){
+    private void displayUpdate(){
         tv_display.setText(display);
         Log.i(INFO_CALC, "displayUpdate() " + display);
+        Log.i(INFO_CALC, "base operator = " + operator);
     }
 
-    public double add(String a, String b){
-     double num1 = Double.valueOf(a);
-     double num2 = Double.valueOf(b);
-        return num1 + num2;
+    public double operatorsArithmetic(String a, String b, String operator){
+        double x = Double.valueOf(a);
+        double y = Double.valueOf(b);
+
+     switch (operator){
+         case "+":
+             return x + y;
+         case "-":
+             return x - y;
+         case "*":
+             return x * y;
+         case "÷":
+            if(y == 0){
+                Toast.makeText(this, "divisions by zero", Toast.LENGTH_SHORT).show();
+            }  else {
+                 return x / y;
+            }
+
+         default: return -1;
+     }
+
+    }
+
+    public void onClickEquals(View v){
+
+         String[]  operation = display.split("\\" + operator);
+
+        double result;
+
+        if(operation.length == 1){
+            Toast.makeText(this, " operation.length == 1", Toast.LENGTH_SHORT).show();
+
+        } else if (operation.length < 2){
+            Toast.makeText(this, "operation.length < 2", Toast.LENGTH_SHORT).show();
+
+
+        } else {
+            result = operatorsArithmetic(operation[0], operation[1], operator);
+            String resl = String.valueOf(result);
+            tv_display.setText(resl);
+        }
 
     }
 
