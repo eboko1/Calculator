@@ -7,28 +7,25 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
-public class Calculator extends AppCompatActivity implements View.OnClickListener{
+public class Calculator extends AppCompatActivity {
 
     private TextView tv_display;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0,
                     btnEquals, btnClean, btnMultip, btnDiv, btnAdding, btnSubtraction;
 
+
     private String display = "";
-    private  String currentOperator = "";
+    private  String operator = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
         init();
-        initSetOnClick();
+
+        tv_display.setText(display);
 
 
-
-    }
-
-    public void initSetOnClick(){
-        btnClean.setOnClickListener(this);
     }
 
    public void init(){
@@ -55,14 +52,26 @@ public class Calculator extends AppCompatActivity implements View.OnClickListene
 
    public void displayClean(){
        display = "";
+       operator = "";
    }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnClean:
-                displayClean();
-                tv_display.setText(display);
-        }
+    public void displayUpdate(){
+        tv_display.setText(display);
     }
+
+    public void onClickNumber(View v) {
+        Button btnNum = (Button) v;
+            display = display + btnNum.getText().toString();
+            displayUpdate();
+    }
+
+
+    public void onClickOperator(View v) {
+        Button btnOperator = (Button) v;
+        display = display + btnOperator.getText().toString();
+        operator = btnOperator.getText().toString();
+        displayUpdate();
+    }
+
+
 }
