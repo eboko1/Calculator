@@ -1,6 +1,7 @@
 package fvi.at.ua.calculator;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.Toast;
 
 public class Calculator extends AppCompatActivity {
     private static final String INFO_CALC = "calc";
+    private  static final String DISPLAY_KEY = "display";
+
     private TextView tv_display;
     private String display = " ";
     private  String operator = " ";
@@ -20,9 +23,23 @@ public class Calculator extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
         init();
+
+        if (savedInstanceState != null){
+            display = savedInstanceState.getString(DISPLAY_KEY);
+        }
     }
 
-   public void init(){
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putString(DISPLAY_KEY, display);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+
+    }
+
+    public void init(){
        tv_display = (TextView)findViewById(R.id.tv_display);
    }
 
@@ -87,6 +104,7 @@ public class Calculator extends AppCompatActivity {
 
         if(operation.length == 1){
             Toast.makeText(this, " operation.length == 1", Toast.LENGTH_SHORT).show();
+
 
         } else if (operation.length < 2){
             Toast.makeText(this, "operation.length < 2", Toast.LENGTH_SHORT).show();
