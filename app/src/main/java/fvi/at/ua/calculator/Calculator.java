@@ -76,6 +76,8 @@ public class Calculator extends AppCompatActivity {
         double y = Double.valueOf(b);
 
      switch (operator){
+         case "%":
+             return y/100*x;
          case "+":
              return x + y;
          case "-":
@@ -92,6 +94,21 @@ public class Calculator extends AppCompatActivity {
          default: return -1;
      }
     }
+    public double operatorsMath(String a, String operator){
+        double x = Double.valueOf(a);
+
+        switch (operator){
+
+            case "√":
+                return Math.sqrt(x);
+            case "^²":
+                return x*x ;
+
+
+            default: return -1;
+        }
+    }
+
 
     public void onClickEquals(View v){
 
@@ -101,6 +118,9 @@ public class Calculator extends AppCompatActivity {
 
         if(operation.length == 1){
             Toast.makeText(this, " operation.length == 1", Toast.LENGTH_SHORT).show();
+            result = operatorsMath(operation[0], operator);
+            tv_display.setText(String.valueOf(result));
+
 
 
         } else if (operation.length < 2){
