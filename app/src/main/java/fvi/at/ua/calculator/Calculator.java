@@ -102,7 +102,6 @@ public class Calculator extends AppCompatActivity {
             String resl = String.valueOf(result);
             tv_display.setText(resl);
         }
-
     }
 
 }
