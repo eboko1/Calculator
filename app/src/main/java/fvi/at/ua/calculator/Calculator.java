@@ -94,6 +94,7 @@ public class Calculator extends AppCompatActivity {
          default: return -1;
      }
     }
+
     public double operatorsMath(String a, String operator){
         double x = Double.valueOf(a);
 
@@ -103,7 +104,6 @@ public class Calculator extends AppCompatActivity {
                 return Math.sqrt(x);
             case "^²":
                 return x*x ;
-
 
             default: return -1;
         }
@@ -118,8 +118,15 @@ public class Calculator extends AppCompatActivity {
 
         if(operation.length == 1){
             Toast.makeText(this, " operation.length == 1", Toast.LENGTH_SHORT).show();
-            result = operatorsMath(operation[0], operator);
-            tv_display.setText(String.valueOf(result));
+            // enter first sqrt  next   number ----error
+            try {
+                result = operatorsMath(operation[0], operator);
+                tv_display.setText(String.valueOf(result));
+            } catch (Exception e){
+                Toast.makeText(this, "Exception " + e, Toast.LENGTH_LONG).show();
+            }
+
+
 
 
 
